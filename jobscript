@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#SBATCH -A SNIC2022-22-57 -p alvis
+#SBATCH --gpus-per-node=T4:1
+#SBATCH -t 0-06:30:00
+
+python dipoles.py --layers=2 --lmax=1 --mul=8 --lr=1e-3 --batchsize=512 --numepochs=1500 --gamma=0.9 --seed=4 --clip_norm=1 --clip_value=1 --optim="Adam" --wd=0  --percent=100  --save_model=10 --patience=3 --cooldown=0 --cutoff=7 --no-edit --no-use_percent --no-all_in_batch --wandb
